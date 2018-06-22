@@ -37,10 +37,11 @@ public class HelloJME3 extends SimpleApplication
   //They here to avoid instanciating new vectors on each frame
   private Vector3f camDir = new Vector3f();
   private Vector3f camLeft = new Vector3f();
+  private static HelloJME3 myApp;
 
   public static void main(String[] args) {
-    HelloJME3 app = new HelloJME3();
-    app.start();
+    myApp = new HelloJME3();
+    myApp.start();
   }
 
   public void simpleInitApp() {
@@ -115,7 +116,7 @@ public class HelloJME3 extends SimpleApplication
     inputManager.addMapping("Up", new KeyTrigger(KeyInput.KEY_W));
     inputManager.addMapping("Down", new KeyTrigger(KeyInput.KEY_S));
     inputManager.addMapping("Jump", new KeyTrigger(KeyInput.KEY_SPACE));
-    inputManager.addListener(this, "Left");
+    inputManager.addListener(myApp, "Left");
     inputManager.addListener(this, "Right");
     inputManager.addListener(this, "Up");
     inputManager.addListener(this, "Down");
